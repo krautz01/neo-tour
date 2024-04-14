@@ -1,0 +1,17 @@
+.homePage {
+    height: 2500px;
+    
+    color: black;
+    background: linear-gradient(#D0CBFF, 2%, #ffffff);
+}
+
+.greeting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.greeting_img {
+  width: 445px;
+  height: 350px;
+}

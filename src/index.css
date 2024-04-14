@@ -1,19 +1,18 @@
 @font-face {
-  font-family: "Satoshi";
+  font-family: Satoshi;
   src: url("./fonts/Satoshi-Light.woff") format("woff"),
     url("./fonts/Satoshi-Light.woff2") format("woff2"),
     url("./fonts/Satoshi-Medium.woff") format("woff"),
     url("./fonts/Satoshi-Medium.woff2") format("woff2"),
     url("./fonts/Satoshi-Regular.woff") format("woff"),
     url("./fonts/Satoshi-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 :root {
-  font-family: "Satoshi";
-  line-height: 1.5;
-  font-weight: medium;
-
+  font-family: Satoshi;
   color-scheme: light dark;
-  color: #141414;
+  color: rgba(0, 0, 0, 0.87);
   background-color: #ffffff;
 
   font-synthesis: none;
@@ -22,5 +21,51 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.button {
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+  color: #002fff;
+}
+a:hover {
+  color: #0a15b5;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  width: 10rem;
+  height: 3rem;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  background-color: #ff0000;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #c50808;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }
