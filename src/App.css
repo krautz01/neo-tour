@@ -25,11 +25,8 @@ body {
 button {
   width: 14rem;
   height: 3.5rem;
-  align-items: center;
-  display: flex;
   font-size: 1.5rem;
   text-align: center;
-  justify-content: space-between;
   font-weight: 500;
   border-radius: 6.25rem;
   border: 1px solid transparent;
@@ -58,6 +55,14 @@ h1 {
 h2 {
   font-family: "Satoshi";
   font-size: 3rem;
+  font-weight: 700;
+  text-align: left;
+  color: #141414;
+}
+
+h3 {
+  font-family: "Satoshi";
+  font-size: 1.5rem;
   font-weight: 700;
   text-align: left;
   color: #141414;

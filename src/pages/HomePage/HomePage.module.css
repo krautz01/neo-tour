@@ -1,7 +1,8 @@
 .homePage {
   height: 2500px;
   color: black;
-  margin: 0px 120px;
+  box-sizing: border-box;
+  padding: 0px 120px;
 }
 
 .greeting {
