@@ -1,12 +1,9 @@
-@import url('https://fonts.cdnfonts.com/css/satoshi');
+@import url("https://fonts.cdnfonts.com/css/satoshi");
 
 :root {
-  font-family: 'Satoshi', sans-serif;
+  font-family: "Satoshi", sans-serif;
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #ffffff;
-
-  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -27,25 +24,47 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #6a62b7;
 }
 
 button {
-  width: 10rem;
-  height: 3rem;
-  font-weight: 700;
-  border-radius: 8px;
+  width: 14rem;
+  height: 3.5rem;
+  align-items: center;
+  display: flex;
+  font-size: 1.5rem;
+  text-align: center;
+  justify-content: space-between;
+  font-weight: 500;
+  border-radius: 6.25rem;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  background-color: #ff0000;
+  background-color: #6a62b7;
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #c50808;
+  border-color: #514a8f;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+h1 {
+  font-family: "Satoshi";
+  font-size: 6rem;
+  font-weight: 700;
+  text-align: left;
+  color: #141414;
+}
+h2 {
+  font-family: "Satoshi";
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: left;
+  color: #141414;
 }
 
 @media (prefers-color-scheme: light) {
