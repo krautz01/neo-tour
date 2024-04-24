@@ -9,6 +9,7 @@ import Arrow_Right from "../../assets/Arrow_Right.svg";
 import axios from "axios";
 
 import DiscoverCard from "../../components/DiscoverCard/DiscoverCard";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   useEffect(() => {
@@ -58,21 +59,27 @@ export default function HomePage() {
             <p>Asia</p>
           </div>
           <div className={styles.discover_slider_cards}>
-            <div className={styles.discover_slider_card}>
-              <div className={styles.discover_slider_card_title}>
-                Northern Mountains
+            <Link to="/tour/">
+              <div className={styles.discover_slider_card}>
+                <div className={styles.discover_slider_card_title}>
+                  Northern Mountains
+                </div>
               </div>
-            </div>
-            <div className={styles.discover_slider_card}>
-              <div className={styles.discover_slider_card_title}>
-                Northern Mountains
+            </Link>
+            <Link to="/tour/">
+              <div className={styles.discover_slider_card}>
+                <div className={styles.discover_slider_card_title}>
+                  Northern Mountains
+                </div>
               </div>
-            </div>
-            <div className={styles.discover_slider_card}>
-              <div className={styles.discover_slider_card_title}>
-                Northern Mountains
+            </Link>
+            <Link to="/tour/">
+              <div className={styles.discover_slider_card}>
+                <div className={styles.discover_slider_card_title}>
+                  Northern Mountains
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -104,7 +111,7 @@ export default function HomePage() {
             <div>Northern Mountains</div>
           </div> */}
         </div>
-        <DiscoverCard/>
+        <DiscoverCard />
       </section>
     </div>
   );

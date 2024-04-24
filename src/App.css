@@ -44,6 +44,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
 h1 {
   font-family: "Satoshi";
   font-size: 6rem;

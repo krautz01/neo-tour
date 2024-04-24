@@ -6,7 +6,11 @@
   background-size: 100% auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.goback_button{
+  text-align: left;
 }
 
 .tour_name {

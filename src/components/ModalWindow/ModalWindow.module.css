@@ -1,0 +1,55 @@
+.modal_window {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_window_content {
+  width: 614px;
+  height: 683px;
+  background-color: #ffffff;
+  color: black;
+  border-radius: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 40px;
+}
+
+.modal_window_content button {
+  width: 100%;
+  background: #b4b0da;
+}
+
+.modal_window_content_text {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.modal_window_content_number p {
+  color: #888888;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.modal_window_content_number_input {
+  width: 100% !important;
+  color: #888;
+  font-family: Satoshi;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.modal_window_content_number_dropdown {
+  border-radius: 3rem 0 0 3rem;
+}

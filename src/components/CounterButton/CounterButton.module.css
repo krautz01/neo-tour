@@ -1,0 +1,12 @@
+.counter_button_section, .counter_buttons, .counter_button_people_count{
+    display: flex;
+    align-items: center;
+}
+
+.counter_buttons button{
+    width: 42px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}

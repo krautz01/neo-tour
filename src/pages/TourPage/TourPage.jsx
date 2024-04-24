@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./TourPage.module.css";
 import Comment from "../../components/Comment/Comment.jsx";
 
 import geo_point from "../../assets/geo_point.svg";
+import ModalWindow from "../../components/ModalWindow/ModalWindow.jsx";
+
+import GoBack_Arrow from "../../assets/GoBack_Arrow.svg"
+import { Link } from "react-router-dom";
 
 export default function TourPage() {
+  const [active, setActive] = useState(false);
   return (
     <div className={styles.tourPage}>
+      <Link to="/" className={styles.goback_button}>
+        <img src={GoBack_Arrow}/> Go back!
+      </Link>
       <div className={styles.tour_card}>
         <div className={styles.tour_top}>
           <div className={styles.tour_name}>Mount Fuji</div>
@@ -28,9 +36,10 @@ export default function TourPage() {
           <Comment />
         </div>
         <div className={styles.tour_bottom}>
-          <button>Book now</button>
+          <button onClick={() => setActive(true)}>Book now</button>
         </div>
-      </div>
+      </div>{" "}
+      {active ? <ModalWindow active={active} setActive={setActive} /> : <></>}
     </div>
   );
 }
