@@ -13,7 +13,7 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   text-align: center;
-  background: linear-gradient(#d0cbff, 30%, #ffffff);
+  background-color: #ffffff;
   font-family: "Satoshi", sans-serif;
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
@@ -50,6 +50,8 @@ h3,
 p {
   margin: 0;
 }
+
+a{text-decoration: none;}
 
 h1 {
   font-family: "Satoshi";

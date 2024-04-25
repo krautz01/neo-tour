@@ -2,14 +2,15 @@
   height: 2500px;
   color: black;
   box-sizing: border-box;
-  padding: 0px 120px;
 }
 
 .greeting {
   display: flex;
+  background: linear-gradient(#d0cbff, 30%, #ffffff);
   height: 778px;
   justify-content: space-between;
   align-items: center;
+  padding: 0px 120px;
 }
 
 .greeting_img {
@@ -23,6 +24,13 @@
   text-align: left;
 }
 
+.greeting_info button {
+  width: 13rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .greeting_text {
   width: 31rem;
   font-family: "Satoshi";
@@ -31,11 +39,34 @@
   margin-bottom: 3rem;
 }
 
+.discover_section {
+  padding: 0px 120px;
+}
+
 .descover_top {
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: space-between;
+}
+
+.discover_slider_buttons {
+  width: 130px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.discover_slider_buttons button {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 0rem;
+  font-weight: 0;
+  border-radius: 50%;
+  border: none;
+  padding: 0em 0em;
+  background-color: none;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
 
 .discover_slider_tab {
@@ -56,25 +87,39 @@
 }
 
 .discover_slider_card {
-  width: 384px;
-  height: 290px;
-  background-image: url(../../assets/CardImage.png);
-  border-radius: 20px;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
 }
 
-.discover_slider_card_title{
+.discover_slider_card img {
+  width: 384px;
+  height: 290px;
+  background-size: cover;
+  border-radius: 20px;
+}
+
+.discover_slider_card_title {
+  position: absolute;
+  width: 100%;
   height: 70px;
-  background-color: #888888;
+  background-color: rgba(0, 0, 0, 0.4);
   color: #ffffff;
-  opacity: 0.7;
-  text-align: center;
+  box-sizing: border-box;
+  display: flex;
   align-items: center;
+  padding: 21px;
+  z-index: 1;
   font-size: 28px;
   font-weight: 700;
   border-radius: 0px 0px 20px 20px;
+}
+
+.recommended_section {
+  padding: 0px 120px;
 }
 
 .recommended_cards {
@@ -87,6 +132,13 @@
   width: 282px;
   height: 282px;
   background-image: url(../../assets/recommended_image.jpeg);
+  background-size: cover;
   border-radius: 20px;
   margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1439px){
+.discover_slider_cards{
+  justify-content: space-around;
+}
 }

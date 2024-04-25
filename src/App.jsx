@@ -8,7 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" Component={HomePage} />
-        <Route path="/tour/" Component={TourPage} />
+        <Route path="/tour/:id" Component={TourPage} />
       </Routes>
     </>
   );

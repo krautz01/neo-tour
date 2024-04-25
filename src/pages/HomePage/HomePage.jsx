@@ -1,31 +1,43 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import styles from "./HomePage.module.css";
+import { Link } from "react-router-dom";
 
 import LetsGo_Arrow from "../../assets/LetsGo_Arrow.svg";
 import Winter from "../../assets/Winter.svg";
 import Arrow_Left from "../../assets/Arrow_Left.svg";
 import Arrow_Right from "../../assets/Arrow_Right.svg";
 
-import axios from "axios";
-
 import DiscoverCard from "../../components/DiscoverCard/DiscoverCard";
-import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 export default function HomePage() {
+  const [tours, setTours] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  const ref = useRef(null);
+
   useEffect(() => {
-    const fetchMeal = async () => {
+    const fetchTours = async () => {
       try {
         const response = await axios.get(
           "https://kunasyl-backender.org.kg/api/tours/"
         );
-        console.log(response);
+        setTours(response.data);
+        console.log(tours);
+        console.log(tours.typeof);
       } catch (error) {
-        console.log("Error fetching meal details:");
+        console.log("Error fetching tours");
       }
     };
+    fetchTours();
+  }, []);
 
-    fetchMeal();
-  });
+  const handleScroll = () => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleFetchCategory = () => {};
   return (
     <div className={styles.homePage}>
       <section className={styles.greeting}>
@@ -35,51 +47,44 @@ export default function HomePage() {
             Enjoy your winter vacations with warmth and amazing sightseeing on
             the mountains. Enjoy the best experience with us!
           </div>
-          <button>
+          <button onClick={handleScroll}>
             Let's Go!
             <img src={LetsGo_Arrow} />
           </button>
         </div>
         <img className={styles.greeting_img} src={Winter} />
       </section>
-      <section className={styles.discover_section}>
+      <section className={styles.discover_section} ref={ref}>
         <div className={styles.descover_top}>
           <h2>Discover</h2>
-          <div>
-            <img src={Arrow_Left} />
-            <img src={Arrow_Right} />
+          <div className={styles.discover_slider_buttons}>
+            <button>
+              <img src={Arrow_Left} />
+            </button>
+            <button>
+              <img src={Arrow_Right} />
+            </button>
           </div>
         </div>
         <div className={styles.discover_slider}>
           <div className={styles.discover_slider_tab}>
-            <p>Popular</p>
-            <p>Featured</p>
-            <p>Most Visited</p>
-            <p>Europe</p>
-            <p>Asia</p>
+            {tours.map((tour) => (
+              <p id={tour.category.id} onClick={handleFetchCategory}>
+                {tour.category.name}
+              </p>
+            ))}
           </div>
           <div className={styles.discover_slider_cards}>
-            <Link to="/tour/">
-              <div className={styles.discover_slider_card}>
-                <div className={styles.discover_slider_card_title}>
-                  Northern Mountains
+            {tours.map((tour) => (
+              <Link to={`/tour/${tour.id}/`} key={tour.id}>
+                <div className={styles.discover_slider_card}>
+                  <img src={tour.image} />
+                  <div className={styles.discover_slider_card_title}>
+                    {tour.location}
+                  </div>
                 </div>
-              </div>
-            </Link>
-            <Link to="/tour/">
-              <div className={styles.discover_slider_card}>
-                <div className={styles.discover_slider_card_title}>
-                  Northern Mountains
-                </div>
-              </div>
-            </Link>
-            <Link to="/tour/">
-              <div className={styles.discover_slider_card}>
-                <div className={styles.discover_slider_card_title}>
-                  Northern Mountains
-                </div>
-              </div>
-            </Link>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

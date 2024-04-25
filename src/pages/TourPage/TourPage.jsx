@@ -1,19 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./TourPage.module.css";
 import Comment from "../../components/Comment/Comment.jsx";
 
 import geo_point from "../../assets/geo_point.svg";
 import ModalWindow from "../../components/ModalWindow/ModalWindow.jsx";
 
-import GoBack_Arrow from "../../assets/GoBack_Arrow.svg"
-import { Link } from "react-router-dom";
+import GoBack_Arrow from "../../assets/GoBack_Arrow.svg";
+import { Link, useParams, useSearchParams } from "react-router-dom";
+import axios from "axios";
 
 export default function TourPage() {
   const [active, setActive] = useState(false);
+  const [tourDatas, setTourDatas] = useState(null);
+
+  const { id } = useParams();
+  
+  useEffect(() => {
+    const fetchTourDatas = async () => {
+      try {
+        const response = await axios.get(
+          `https://kunasyl-backender.org.kg/api/tours/${id}/`
+        );
+        setTourDatas(response.data);
+        console.log(tourDatas);
+      } catch (error) {
+        console.log("Error fetching tours details");
+      }
+    };
+    fetchTourDatas();
+  }, [id]);
+
   return (
     <div className={styles.tourPage}>
       <Link to="/" className={styles.goback_button}>
-        <img src={GoBack_Arrow}/> Go back!
+        <img src={GoBack_Arrow} /> Go back!
       </Link>
       <div className={styles.tour_card}>
         <div className={styles.tour_top}>
@@ -38,8 +58,8 @@ export default function TourPage() {
         <div className={styles.tour_bottom}>
           <button onClick={() => setActive(true)}>Book now</button>
         </div>
-      </div>{" "}
-      {active ? <ModalWindow active={active} setActive={setActive} /> : <></>}
+      </div>
+      {active && <ModalWindow active={active} setActive={setActive} />}
     </div>
   );
 }
