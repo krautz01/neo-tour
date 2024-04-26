@@ -15,23 +15,22 @@ export default function HomePage() {
   const [tours, setTours] = useState([]);
   const [categories, setCategories] = useState([]);
   const [recommendedTours, setRecommendedTours] = useState([]);
-  const [activeCategory, setActiveCategory] = useState("Popular");
+  const [activeCategory, setActiveCategory] = useState("Europe");
   const [sortedTours, setSortedTours] = useState([]);
 
   const ref = useRef(null);
 
   useEffect(() => {
-    const fetchTours = async () => {
+    const fetchSortedTours = async () => {
       try {
         const response = await axios.get(
           "https://kunasyl-backender.org.kg/api/tours/"
         );
         setTours(response.data);
-        const newTours = tours.filter(
+        const newTours = response.data.filter(
           (sortedTour) => sortedTour.category.name == activeCategory
         );
         setSortedTours(newTours);
-        console.log(sortedTours)
       } catch (error) {
         console.log("Error fetching tours");
       }
@@ -58,7 +57,7 @@ export default function HomePage() {
         console.log("Error fetching recommended tours");
       }
     };
-    fetchTours();
+    fetchSortedTours();
     fetchCategories();
     fetchRecommendedTours();
   }, []);
@@ -68,9 +67,12 @@ export default function HomePage() {
   };
 
   const handleChangeCategory = (category) => {
-    setActiveCategory(null);
+    /* setActiveCategory(null); */
     setActiveCategory(category.name);
-    console.log(activeCategory);
+    const newTours = tours.filter(
+      (sortedTour) => sortedTour.category.name == activeCategory
+    );
+    setSortedTours(newTours);
   };
 
   return (

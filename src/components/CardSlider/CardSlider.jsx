@@ -15,6 +15,9 @@ export default function CardSlider() {
         reloadOnUpdate
         static
       >
+        <button>ffyyRDD</button>
+        <button>ffyyRDD</button>
+        <button>ffyyRDD</button>
       </Flickity>
     </div>
   );
