@@ -1,16 +1,33 @@
-.tourPage {
-  width: 1440px;
-  height: 1690px;
-  color: black;
-  background-image: url(/src/assets/Mount_Fuji.jpeg);
-  background-size: 100% auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.tourPage_tourImage {
+  width: 100%;
+  position: absolute;
+  top: 0;
 }
 
-.goback_button{
+.goback_button {
+  position: absolute;
   text-align: left;
+  top: 136px;
+  left: 120px;
+  font-size: 18px;
+}
+
+.tourPage {
+  width: 1440px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.tour_card {
+  position: absolute;
+  top: 617px;
+  height: 888px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 50px 120px;
+  border-radius: 3rem 3rem 0rem 0rem;
+  background-color: #ffffff;
 }
 
 .tour_name {
@@ -28,16 +45,6 @@
 .tour_location_land {
   font-size: 1rem;
   font-weight: 500;
-}
-
-.tour_card {
-  top: 617px;
-  height: 888px;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 50px 120px;
-  border-radius: 3rem 3rem 0rem 0rem;
-  background-color: #ffffff;
 }
 
 .tour_desc_text {

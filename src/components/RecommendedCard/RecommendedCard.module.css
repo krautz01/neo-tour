@@ -1,4 +1,4 @@
-.discover_slider_card {
+.recommended_card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -7,17 +7,17 @@
   margin-bottom: 1.5rem;
 }
 
-.discover_slider_card img {
-  width: 384px;
-  height: 290px;
+.recommended_card img {
+  width: 282px;
+  height: 282px;
   background-size: cover;
   border-radius: 20px;
 }
 
-.discover_slider_card_title {
+.drecommended_card_title {
   position: absolute;
   width: 100%;
-  height: 70px;
+  height: 51px;
   background-color: rgba(0, 0, 0, 0.4);
   color: #ffffff;
   box-sizing: border-box;
@@ -25,7 +25,7 @@
   align-items: center;
   padding: 21px;
   z-index: 1;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   border-radius: 0px 0px 20px 20px;
 }

@@ -80,46 +80,20 @@
   margin-bottom: 4rem;
 }
 
+.discover_slider_tab_button {
+  color: #6a62b7;
+  font-weight: 700;
+}
+
 .discover_slider_cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.discover_slider_card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  border-radius: 20px;
-  margin-bottom: 1.5rem;
-}
-
-.discover_slider_card img {
-  width: 384px;
-  height: 290px;
-  background-size: cover;
-  border-radius: 20px;
-}
-
-.discover_slider_card_title {
-  position: absolute;
-  width: 100%;
-  height: 70px;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #ffffff;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  padding: 21px;
-  z-index: 1;
-  font-size: 28px;
-  font-weight: 700;
-  border-radius: 0px 0px 20px 20px;
-}
-
 .recommended_section {
   padding: 0px 120px;
+  margin-bottom: 4rem;
 }
 
 .recommended_cards {
@@ -128,17 +102,8 @@
   justify-content: space-between;
 }
 
-.recommended_card {
-  width: 282px;
-  height: 282px;
-  background-image: url(../../assets/recommended_image.jpeg);
-  background-size: cover;
-  border-radius: 20px;
-  margin-bottom: 1.5rem;
-}
-
-@media (max-width: 1439px){
-.discover_slider_cards{
-  justify-content: space-around;
-}
+@media (max-width: 1439px) {
+  .discover_slider_cards {
+    justify-content: space-around;
+  }
 }

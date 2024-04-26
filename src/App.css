@@ -51,7 +51,10 @@ p {
   margin: 0;
 }
 
-a{text-decoration: none;}
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
 
 h1 {
   font-family: "Satoshi";

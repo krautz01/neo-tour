@@ -4,14 +4,15 @@ import styles from "./ModalWindow.module.css";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
-import CounterButton from "../CounterButton/CounterButton"
+import CounterButton from "../CounterButton/CounterButton";
 
 export default function ModalWindow({ active, setActive }) {
   const [phoneNumber, setPhoneNumber] = useState("");
-  function handleOnChange(e, value) {
-    const input = e.target.value;
-    setPhoneNumber(value);
-  }
+  const [succes, setSucces] = useState(false);
+
+  const handleChangeSuccess = () => {
+    setSucces(true);
+  };
   return (
     <div className={styles.modal_window} onClick={() => setActive(false)}>
       <div
@@ -41,9 +42,9 @@ export default function ModalWindow({ active, setActive }) {
         </div>
         <div className={styles.modal_window_content_number}>
           <p>Commentaries to trip</p>
-          <CounterButton/>
+          <CounterButton />
         </div>
-        <button>Submit</button>
+        <button onClick={() => handleChangeSuccess()}>Submit</button>
       </div>
     </div>
   );
