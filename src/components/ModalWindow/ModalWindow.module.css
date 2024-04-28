@@ -34,6 +34,18 @@
   font-weight: 400;
 }
 
+.modal_window_content_number input {
+  height: 4rem;
+  width: 100%;
+  border-radius: 100px;
+  border: 1px solid #636363;
+  background-color: #ffffff;
+  color: #000;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding-left: 20px;
+}
+
 .modal_window_content_number p {
   color: #888888;
   font-size: 1rem;
@@ -43,11 +55,13 @@
 .modal_window_content_number_input {
   width: 100% !important;
   color: #888;
-  font-family: Satoshi;
   font-size: 1.8rem;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+}
+
+.react-tel-input{
+  border: 1px solid #b4b0da;
 }
 
 .modal_window_content_number_dropdown {

@@ -23,7 +23,7 @@ body {
 }
 
 button {
-  width: 14rem;
+  /* width: 14rem; */
   height: 3.5rem;
   font-size: 1.5rem;
   text-align: center;
@@ -51,7 +51,10 @@ p {
   margin: 0;
 }
 
-a{text-decoration: none;}
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
 
 h1 {
   font-family: "Satoshi";
