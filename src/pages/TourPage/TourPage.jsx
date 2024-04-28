@@ -14,6 +14,7 @@ export default function TourPage() {
   const [active, setActive] = useState(false);
   const [tourDatas, setTourDatas] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [success, setSuccess] = useState("");
 
   const { id } = useParams();
 
@@ -80,7 +81,16 @@ export default function TourPage() {
           <button onClick={() => setActive(true)}>Book now</button>
         </div>
       </div>
-      {active && <ModalWindow active={active} setActive={setActive} />}
+      {active && (
+        <ModalWindow
+          active={active}
+          setActive={setActive}
+          tourDatas={tourDatas}
+          setSuccess={setSuccess}
+          id={id}
+        />
+      )}
+      {success && <Reult success={success} />}
     </div>
   );
 }

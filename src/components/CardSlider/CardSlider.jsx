@@ -1,13 +1,15 @@
 import React from "react";
 import "./CardSlider.css";
 import Flickity from "react-flickity-component";
+import DiscoverCard from "../DiscoverCard/DiscoverCard.jsx";
 
 const flickityOptions = { initialIndex: 2 };
 
-export default function CardSlider() {
+export default function CardSlider({ sortedTours }) {
+  console.log(sortedTours);
   return (
-    <div>
-      <Flickity
+    <>
+      {/* <Flickity
         className="Slider"
         elementType="div"
         disableImagesLoaded={false}
@@ -15,10 +17,9 @@ export default function CardSlider() {
         reloadOnUpdate
         static
       >
-        <button>ffyyRDD</button>
-        <button>ffyyRDD</button>
-        <button>ffyyRDD</button>
-      </Flickity>
-    </div>
+      {sortedTours &&
+        sortedTours.map((tour) => <DiscoverCard tour={tour} key={tour.id} />)}
+      </Flickity> */}
+    </>
   );
 }

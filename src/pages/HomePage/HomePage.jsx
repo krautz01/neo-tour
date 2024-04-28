@@ -15,26 +15,12 @@ export default function HomePage() {
   const [tours, setTours] = useState([]);
   const [categories, setCategories] = useState([]);
   const [recommendedTours, setRecommendedTours] = useState([]);
-  const [activeCategory, setActiveCategory] = useState("Europe");
+  const [activeCategory, setActiveCategory] = useState("Popular");
   const [sortedTours, setSortedTours] = useState([]);
 
   const ref = useRef(null);
 
   useEffect(() => {
-    const fetchSortedTours = async () => {
-      try {
-        const response = await axios.get(
-          "https://kunasyl-backender.org.kg/api/tours/"
-        );
-        setTours(response.data);
-        const newTours = response.data.filter(
-          (sortedTour) => sortedTour.category.name == activeCategory
-        );
-        setSortedTours(newTours);
-      } catch (error) {
-        console.log("Error fetching tours");
-      }
-    };
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
@@ -45,46 +31,52 @@ export default function HomePage() {
         console.log("Error fetching categories");
       }
     };
-    const fetchRecommendedTours = async () => {
+
+    fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    const fetchTours = async () => {
       try {
         const response = await axios.get(
           "https://kunasyl-backender.org.kg/api/tours/"
         );
-        const resp = response.data;
-        const newResps = resp.filter((newResp) => newResp.recommended);
+        setTours(response.data);
+        const newResps = response.data.filter((newResp) => newResp.recommended);
         setRecommendedTours(newResps);
       } catch (error) {
-        console.log("Error fetching recommended tours");
+        console.log("Error fetching tours");
       }
     };
-    fetchSortedTours();
-    fetchCategories();
-    fetchRecommendedTours();
+    fetchTours();
   }, []);
+
+  useEffect(() => {
+    const newTours = tours.filter(
+      (sortedTour) => sortedTour.category.name == activeCategory
+    );
+    setSortedTours(newTours);
+  }, [activeCategory]);
 
   const handleScroll = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleChangeCategory = (category) => {
-    /* setActiveCategory(null); */
     setActiveCategory(category.name);
-    const newTours = tours.filter(
-      (sortedTour) => sortedTour.category.name == activeCategory
-    );
-    setSortedTours(newTours);
+    console.log(activeCategory);
   };
 
   return (
     <div className={styles.homePage}>
       <section className={styles.greeting}>
         <div className={styles.greeting_info}>
-          <h1>Winter Vacation Trips</h1>
+          <h1>Winter <br/>Vacation Trips</h1>
           <div className={styles.greeting_text}>
             Enjoy your winter vacations with warmth and amazing sightseeing on
             the mountains. Enjoy the best experience with us!
           </div>
-          <button onClick={handleScroll}>
+          <button onClick={handleScroll} className={styles.letsgo_button}>
             Let's Go!
             <img src={LetsGo_Arrow} />
           </button>
@@ -94,14 +86,14 @@ export default function HomePage() {
       <section className={styles.discover_section} ref={ref}>
         <div className={styles.descover_top}>
           <h2>Discover</h2>
-          <div className={styles.discover_slider_buttons}>
+          {/* <div className={styles.discover_slider_buttons}>
             <button>
               <img src={Arrow_Left} />
             </button>
             <button>
               <img src={Arrow_Right} />
             </button>
-          </div>
+          </div> */}
         </div>
         <div className={styles.discover_slider}>
           <div className={styles.discover_slider_tab}>
@@ -116,9 +108,11 @@ export default function HomePage() {
             ))}
           </div>
           <div className={styles.discover_slider_cards}>
-            {sortedTours.map((tour) => (
-              <DiscoverCard tour={tour} key={tour.id} />
-            ))}
+            {/* <CardSlider sortedTours={sortedTours} /> */}
+            {sortedTours &&
+              sortedTours.map((tour) => (
+                <DiscoverCard tour={tour} key={tour.id} />
+              ))}
           </div>
         </div>
       </section>
@@ -133,7 +127,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-      <CardSlider />
     </div>
   );
 }

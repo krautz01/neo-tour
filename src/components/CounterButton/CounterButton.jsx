@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import styles from "./CounterButton.module.css";
 import man from "../../assets/man.svg";
 
-export default function CounterButton() {
-  const [peopleCount, setPeopleCount] = useState(0);
+export default function CounterButton({ peopleCount, setPeopleCount }) {
   const handleCountChangePlus = () => {
-    setPeopleCount(peopleCount + 1);
+    peopleCount < 5 && setPeopleCount(peopleCount + 1);
   };
   const handleCountChangeMinus = () => {
-    setPeopleCount(peopleCount - 1);
+    peopleCount > 0 && setPeopleCount(peopleCount - 1);
   };
   return (
     <div className={styles.counter_button_section}>

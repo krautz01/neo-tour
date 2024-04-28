@@ -5,14 +5,73 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 import CounterButton from "../CounterButton/CounterButton";
+import axios from "axios";
 
-export default function ModalWindow({ active, setActive }) {
+export default function ModalWindow({
+  active,
+  setActive,
+  tourDatas,
+  setSuccess,
+  id,
+}) {
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [succes, setSucces] = useState(false);
+  const [commentToTrip, setCommentToTrip] = useState("");
+  const [peopleCount, setPeopleCount] = useState(1);
+  const [userName, setUserName] = useState("");
 
-  const handleChangeSuccess = () => {
-    setSucces(true);
+  const handleBookTour = () => {
+    /* tour: {
+    let obj = {
+        category: {
+          name: tourDatas.category.name,
+        },
+        name: tourDatas.name,
+        location: tourDatas.location,
+        description: tourDatas.description,
+        recommended: tourDatas.recommended,
+        full_name: userName,
+        phone_number: phoneNumber,
+        number_of_people: peopleCount,
+        additional_comments: commentToTrip,
+      };
+    }, */
+    if (phoneNumber !== "") {
+      setSuccess("confirmed");
+      setActive(false);
+    } else {
+      setSuccess("cancelld");
+      setActive(false);
+    }
+
+    /* bookTour(obj); */
+    setCommentToTrip("");
+    setPeopleCount(0);
+    setPhoneNumber(0);
   };
+
+  /* async function bookTour(tour) {
+    try {
+      let res = await axios.post(
+        `https://kunasyl-backender.org.kg/api/bookings/`,
+        tour
+      );
+      console.log(`"This is post " ${res}`);
+    } catch (error) {
+      ("Fail errrrrrrrrrrrrrrrrrrror");
+    }
+  } */
+
+  const handleChangePhoneNumber = (phone) => {
+    if (phone.length == 12) {
+      setPhoneNumber(
+        `+${phone.toString().slice(0, 3)}-${phone
+          .toString()
+          .slice(3, 6)}-${phone.toString().slice(6)}`
+      );
+      console.log(phoneNumber);
+    }
+  };
+
   return (
     <div className={styles.modal_window} onClick={() => setActive(false)}>
       <div
@@ -30,7 +89,7 @@ export default function ModalWindow({ active, setActive }) {
             containerClass={styles.dropdown}
             country={"kg"}
             value={phoneNumber}
-            onChange={(phone) => setPhoneNumber(phone)}
+            onChange={(phone) => handleChangePhoneNumber(phone)}
             inputClass={styles.modal_window_content_number_input}
             inputStyle={{ borderRadius: "3rem" }}
             dropdownClass={styles.modal_window_content_number_dropdown}
@@ -38,13 +97,23 @@ export default function ModalWindow({ active, setActive }) {
         </div>
         <div className={styles.modal_window_content_number}>
           <p>Commentaries to trip</p>
-          <input className={styles.modal_window_content_number_input} />
+          <input
+            placeholder="Write your wishes to trip..."
+            onChange={(e) => setCommentToTrip(e.target.value)}
+          />
+          {/*  <input
+            placeholder="Enter yout name"
+            onChange={(e) => setUserName(e.target.value)}
+          /> */}
         </div>
         <div className={styles.modal_window_content_number}>
           <p>Commentaries to trip</p>
-          <CounterButton />
+          <CounterButton
+            peopleCount={peopleCount}
+            setPeopleCount={setPeopleCount}
+          />
         </div>
-        <button onClick={() => handleChangeSuccess()}>Submit</button>
+        <button onClick={() => handleBookTour()}>Submit</button>
       </div>
     </div>
   );

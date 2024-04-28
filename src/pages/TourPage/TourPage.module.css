@@ -34,12 +34,14 @@
   font-size: 4rem;
   font-weight: 900;
   text-align: left;
+  margin-bottom: 1.7rem;
 }
 
 .tour_location {
   display: flex;
   width: 8.7rem;
   justify-content: space-between;
+  margin-bottom: 3rem;
 }
 
 .tour_location_land {
@@ -47,10 +49,18 @@
   font-weight: 500;
 }
 
+.tour_desc h3{
+  margin-bottom: 1rem;
+}
+
 .tour_desc_text {
   font-size: 18px;
   font-weight: 400;
   text-align: left;
+}
+
+.tour_desc{
+  margin-bottom: 3rem;
 }
 
 .tour_bottom {
@@ -61,4 +71,8 @@
   width: 100%;
   text-align: center;
   align-items: center;
+}
+
+.tour_comments h3{
+margin-bottom: 1rem;
 }

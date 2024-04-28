@@ -1,12 +1,38 @@
-.counter_button_section, .counter_buttons, .counter_button_people_count{
-    display: flex;
-    align-items: center;
+.counter_button_section,
+.counter_buttons,
+.counter_button_people_count {
+  display: flex;
+  align-items: center;
 }
 
-.counter_buttons button{
-    width: 42px;
-    height: 48px;
+.counter_buttons {
+  width: 8.125rem;
+  background: #f3f3f3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter_buttons button {
+  width: 42px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  background: #897cff;
+}
+
+.counter_buttons p {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.counter_button_people_count{
+    padding-left: 1rem;
+    width: 6rem;
     display: flex;
-    align-items: center;
-    text-align: center;
+    justify-content: space-between;
+}
+
+.counter_button_people_count p{
+    color: #000;
+
 }

@@ -2,7 +2,8 @@
 https://flickity.metafizzy.co
 ---------------------------------------------- */
 .Slider {
-  width: 50%;
+  background-color: rgb(147, 151, 151);
+  padding: 0 120px;
 }
 
 .flickity-enabled {
@@ -21,14 +22,17 @@ https://flickity.metafizzy.co
 
 .flickity-slider {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 /* draggable */
 
 .flickity-enabled.is-draggable {
-  -webkit-tap-highlight-color: transparent;
+  /* -webkit-tap-highlight-color: transparent; */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -54,7 +58,6 @@ https://flickity.metafizzy.co
   border: none;
   color: #333;
 }
-
 
 .flickity-button:hover {
   background: white;
