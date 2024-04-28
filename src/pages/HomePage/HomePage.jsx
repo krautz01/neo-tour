@@ -15,7 +15,7 @@ export default function HomePage() {
   const [tours, setTours] = useState([]);
   const [categories, setCategories] = useState([]);
   const [recommendedTours, setRecommendedTours] = useState([]);
-  const [activeCategory, setActiveCategory] = useState("Popular");
+  const [activeCategory, setActiveCategory] = useState("");
   const [sortedTours, setSortedTours] = useState([]);
 
   const ref = useRef(null);
@@ -44,6 +44,7 @@ export default function HomePage() {
         setTours(response.data);
         const newResps = response.data.filter((newResp) => newResp.recommended);
         setRecommendedTours(newResps);
+        setActiveCategory("Popular")
       } catch (error) {
         console.log("Error fetching tours");
       }
@@ -71,7 +72,10 @@ export default function HomePage() {
     <div className={styles.homePage}>
       <section className={styles.greeting}>
         <div className={styles.greeting_info}>
-          <h1>Winter <br/>Vacation Trips</h1>
+          <h1>
+            Winter <br />
+            Vacation Trips
+          </h1>
           <div className={styles.greeting_text}>
             Enjoy your winter vacations with warmth and amazing sightseeing on
             the mountains. Enjoy the best experience with us!
@@ -109,10 +113,9 @@ export default function HomePage() {
           </div>
           <div className={styles.discover_slider_cards}>
             {/* <CardSlider sortedTours={sortedTours} /> */}
-            {sortedTours &&
-              sortedTours.map((tour) => (
-                <DiscoverCard tour={tour} key={tour.id} />
-              ))}
+            {sortedTours.map((tour) => (
+              <DiscoverCard tour={tour} key={tour.id} />
+            ))}
           </div>
         </div>
       </section>
