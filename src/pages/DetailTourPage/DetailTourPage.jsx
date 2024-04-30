@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./TourPage.module.css";
+import styles from "./DetailTourPage.module.css";
 import Comment from "../../components/Comment/Comment.jsx";
 
 import geo_point from "../../assets/geo_point.svg";
@@ -10,7 +10,7 @@ import GoBack_Arrow from "../../assets/GoBack_Arrow.svg";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
 
-export default function TourPage() {
+export default function DetailTourPage() {
   const [active, setActive] = useState(false);
   const [tourDatas, setTourDatas] = useState([]);
   const [reviews, setReviews] = useState([]);

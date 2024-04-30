@@ -16,6 +16,7 @@ export default function HomePage() {
   const [categories, setCategories] = useState([]);
   const [recommendedTours, setRecommendedTours] = useState([]);
   const [activeCategory, setActiveCategory] = useState("");
+  const [activeTab, setActiveTab] = useState("");
   const [sortedTours, setSortedTours] = useState([]);
 
   const ref = useRef(null);
@@ -44,7 +45,7 @@ export default function HomePage() {
         setTours(response.data);
         const newResps = response.data.filter((newResp) => newResp.recommended);
         setRecommendedTours(newResps);
-        setActiveCategory("Popular")
+        setActiveCategory("Popular");
       } catch (error) {
         console.log("Error fetching tours");
       }
@@ -65,7 +66,6 @@ export default function HomePage() {
 
   const handleChangeCategory = (category) => {
     setActiveCategory(category.name);
-    console.log(activeCategory);
   };
 
   return (
@@ -85,37 +85,38 @@ export default function HomePage() {
             <img src={LetsGo_Arrow} />
           </button>
         </div>
-        <img className={styles.greeting_img} src={Winter} />
+        <div className={styles.greeting_img}></div>
       </section>
       <section className={styles.discover_section} ref={ref}>
-        <div className={styles.descover_top}>
+        <div className={styles.discover_top}>
           <h2>Discover</h2>
-          {/* <div className={styles.discover_slider_buttons}>
+          <div className={styles.discover_slider_buttons}>
             <button>
               <img src={Arrow_Left} />
             </button>
             <button>
               <img src={Arrow_Right} />
             </button>
-          </div> */}
+          </div>
         </div>
         <div className={styles.discover_slider}>
           <div className={styles.discover_slider_tab}>
             {categories.map((category) => (
-              <p
+              <div
                 key={category.id}
                 className={styles.discover_slider_tab}
                 onClick={() => handleChangeCategory(category)}
               >
                 {category.name}
-              </p>
+              </div>
             ))}
           </div>
           <div className={styles.discover_slider_cards}>
             {/* <CardSlider sortedTours={sortedTours} /> */}
-            {sortedTours.map((tour) => (
-              <DiscoverCard tour={tour} key={tour.id} />
-            ))}
+            {sortedTours &&
+              sortedTours.map((tour) => (
+                <DiscoverCard tour={tour} key={tour.id} />
+              ))}
           </div>
         </div>
       </section>

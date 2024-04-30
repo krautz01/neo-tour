@@ -20,36 +20,29 @@ export default function ModalWindow({
   const [userName, setUserName] = useState("");
 
   const handleBookTour = () => {
-    /* tour: {
     let obj = {
-        category: {
-          name: tourDatas.category.name,
-        },
-        name: tourDatas.name,
-        location: tourDatas.location,
-        description: tourDatas.description,
-        recommended: tourDatas.recommended,
-        full_name: userName,
-        phone_number: phoneNumber,
-        number_of_people: peopleCount,
-        additional_comments: commentToTrip,
-      };
-    }, */
+      tour: tourDatas.id,
+      full_name: userName,
+      phone_number: phoneNumber,
+      number_of_people: peopleCount,
+      additional_comments: commentToTrip,
+    };
+    /* 
     if (phoneNumber !== "") {
       setSuccess("confirmed");
       setActive(false);
     } else {
       setSuccess("cancelld");
       setActive(false);
-    }
+    } */
 
-    /* bookTour(obj); */
+    bookTour(obj);
     setCommentToTrip("");
     setPeopleCount(0);
-    setPhoneNumber(0);
+    setPhoneNumber("");
   };
 
-  /* async function bookTour(tour) {
+  async function bookTour(tour) {
     try {
       let res = await axios.post(
         `https://kunasyl-backender.org.kg/api/bookings/`,
@@ -59,7 +52,7 @@ export default function ModalWindow({
     } catch (error) {
       ("Fail errrrrrrrrrrrrrrrrrrror");
     }
-  } */
+  }
 
   const handleChangePhoneNumber = (phone) => {
     if (phone.length == 12) {

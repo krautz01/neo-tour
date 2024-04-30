@@ -1,14 +1,14 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
-import TourPage from "./pages/TourPage/TourPage";
+import DetailTourPage from "./pages/DetailTourPage/DetailTourPage";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" Component={HomePage} />
-        <Route path="/tour/:id" Component={TourPage} />
+        <Route path="/tour/:id" Component={DetailTourPage} />
       </Routes>
     </>
   );
