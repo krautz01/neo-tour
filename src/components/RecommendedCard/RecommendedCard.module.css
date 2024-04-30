@@ -4,7 +4,6 @@
   flex-direction: column;
   justify-content: flex-end;
   border-radius: 20px;
-  margin-bottom: 1.5rem;
 }
 
 .recommended_card img {
@@ -30,9 +29,9 @@
   border-radius: 0px 0px 20px 20px;
 }
 
-@media (max-width= 425px) {
-  .recommended_card {
-    width: 11.5625rem;
-    height: 11.5625rem;
+@media screen and (width < 426px) {
+  .recommended_card img {
+    width: 11.4rem;
+    height: 11.4rem;
   }
 }

@@ -21,18 +21,23 @@
 }
 
 .counter_buttons p {
-    font-size: 20px;
-    font-weight: 700;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-.counter_button_people_count{
-    padding-left: 1rem;
-    width: 6rem;
-    display: flex;
-    justify-content: space-between;
+.counter_button_people_count {
+  padding-left: 1rem;
+  width: 6rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-.counter_button_people_count p{
-    color: #000;
+.counter_button_people_count p {
+  color: #000;
+}
 
+@media screen and (width<426px) {
+  .counter_buttons button {
+    height: 50px;
+  }
 }

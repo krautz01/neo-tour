@@ -18,6 +18,7 @@
 .greeting_img {
   width: 445px;
   height: 350px;
+  background-image: url(../../assets/Winter.svg);
 }
 
 .greeting_info {
@@ -26,7 +27,7 @@
   text-align: left;
 }
 
-.greeting_info h1{
+.greeting_info h1 {
   margin-bottom: 5rem;
 }
 
@@ -47,14 +48,15 @@
 
 .discover_section {
   padding: 0px 7.5rem;
-  margin-bottom: 12rem;
+  margin-bottom: 8rem;
 }
 
-.descover_top {
+.discover_top {
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .discover_slider_buttons {
@@ -80,14 +82,15 @@
   display: flex;
   text-align: center;
   align-items: center;
-  justify-content: space-between;
-  width: 53%;
+  gap: 1rem;
+  width: 60%;
   font-size: 1.1rem;
   color: #141414;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
+  cursor: pointer;
 }
 
-.discover_slider_tab_button {
+.discover_slider_tab_active_tab {
   color: #6a62b7;
   font-weight: 700;
 }
@@ -104,56 +107,76 @@
   margin-bottom: 4rem;
 }
 
-.recommended_section h2{
-  margin-bottom: 8rem;
+.recommended_section h2 {
+  margin-bottom: 4rem;
 }
 
 .recommended_cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-@media (max-width=425px) {
+@media screen and (width <426px) {
   .greeting_img {
-    width: 100%;
-    height: 50%;
+    height: 70vh;
+    width: 101%;
+    background-size: cover;
+    background-image: url(../../assets/Winter.png);
   }
-  
+
   .greeting {
     flex-direction: column-reverse;
-    height: auto;
+    height: 100vh;
     padding: 0;
     background: none;
   }
 
-  .greeting_text, h1{
-    padding: 0 1rem;
+  .greeting_text,
+  h1 {
+    padding: 0 0 0 1rem;
   }
 
-  .greeting_text, .letsgo_button{
+  .greeting_text,
+  .letsgo_button {
     font-size: 1rem;
     font-weight: 400;
   }
 
-  h1{
+  .greeting_info {
+    box-sizing: border-box;
+    padding-top: 2rem;
+  }
+
+  .greeting_info h1 {
+    margin-bottom: 1rem;
+    font-weight: 900;
+  }
+
+  .greeting_text {
+    width: 74%;
+    margin-bottom: 3rem;
+  }
+
+  h1 {
     font-size: 2.25rem;
   }
 
-  .letsgo_button{
-    margin: 0 1rem;
-    width: 3rem;
+  .letsgo_button {
+    margin-left: 1rem;
+    width: 2rem;
   }
 
-  .discover_section, .recommended_section{
+  .discover_section,
+  .recommended_section {
     padding: 0 1rem;
   }
 
-  .discover_slider_cards{
+  .discover_slider_cards {
     align-items: center;
   }
 
-  .recommended_cards{
-    align-items: center;
+  .discover_slider_tab {
+    width: 100%;
   }
 }
