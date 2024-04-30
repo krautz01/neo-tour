@@ -32,15 +32,10 @@ button {
   padding: 0.6em 1.2em;
   background-color: #6a62b7;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
 
 button:hover {
   border-color: #514a8f;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 h1,

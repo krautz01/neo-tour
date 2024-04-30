@@ -31,7 +31,7 @@
 
 @media screen and (width < 426px) {
   .recommended_card img {
-    width: 11.5rem;
-    height: 11.5rem;
+    width: 11.4rem;
+    height: 11.4rem;
   }
 }

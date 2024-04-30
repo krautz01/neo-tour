@@ -114,13 +114,13 @@
 .recommended_cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 @media screen and (width <426px) {
   .greeting_img {
-    width: cover;
     height: 70vh;
+    width: 101%;
     background-size: cover;
     background-image: url(../../assets/Winter.png);
   }

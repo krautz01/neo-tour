@@ -60,10 +60,43 @@
   font-weight: 400;
 }
 
-.react-tel-input{
+.react-tel-input {
   border: 1px solid #b4b0da;
 }
 
 .modal_window_content_number_dropdown {
   border-radius: 3rem 0 0 3rem;
+}
+
+@media screen and (width <426px) {
+  .modal_window {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .modal_window_content {
+    height: 58vh;
+    border-radius: 28px;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .modal_window_content h2{
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  .modal_window_content button {
+    height: 50px;
+  }
+
+  .modal_window_content_text, .modal_window_content_number {
+    font-size: 14px;
+  }
+
+  .modal_window_content_number input {
+    height: 50px;
+    border-radius: 100px;
+  }
 }
